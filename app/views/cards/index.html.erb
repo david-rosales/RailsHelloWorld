@@ -1,0 +1,71 @@
+<div class="col s4">
+    <div class="card-panel s12 center-align">
+        <h5>New Cards</h5>
+    </div>
+    <% @newcards.each do |card| %>
+    <div class="card-panel s12">
+        <h4><%= card.title %></h4>
+        <h5><%= card.description %></h5>
+        <h6><%= card.urgency=="1" ? 'Do Right Now' : card.urgency=="2" ? 'Do Sometime Later' : 'Do Whenever' %></h6>
+        <h6><%= card.details %></h6><br>
+        <div class="row center-align">
+            <a href="/moveleft?id_param=<%= card.id %>" class="btn-floating btn-small grey lighten-3 disabled"><i class="material-icons">keyboard_arrow_left</i></a>
+            <a href="/edit?id_param=<%= card.id %>" class="btn-floating btn-small grey"><i class="material-icons">mode_edit</i></a>
+            <a href="/delete?id_param=<%= card.id %>" class="btn-floating btn-small red"><i class="material-icons">delete</i></a>
+            <a href="/moveright?id_param=<%= card.id %>" class="btn-floating btn-small grey lighten-3"><i class="material-icons">keyboard_arrow_right</i></a>
+        </div>
+    </div>    
+    <% end %>
+</div>
+<div class="col s4">
+    <div class="card-panel s12 center-align">
+        <h5>Current Cards</h5>
+    </div>
+    <% @currentcards.each do |card| %>
+    <div class="card-panel s12">
+        <h4><%= card.title %></h4>
+        <h5><%= card.description %></h5>
+        <h6><%= card.urgency=="1" ? 'Do Right Now' : card.urgency=="2" ? 'Do Sometime Later' : 'Do Whenever' %></h6>
+        <h6><%= card.details %></h6><br>
+        <div class="row center-align">
+            <a href="/moveleft?id_param=<%= card.id %>" class="btn-floating btn-small grey lighten-3"><i class="material-icons">keyboard_arrow_left</i></a>
+            <a href="/edit?id_param=<%= card.id %>" class="btn-floating btn-small grey"><i class="material-icons">mode_edit</i></a>
+            <a href="/delete?id_param=<%= card.id %>" class="btn-floating btn-small red"><i class="material-icons">delete</i></a>
+            <a href="/moveright?id_param=<%= card.id %>" class="btn-floating btn-small grey lighten-3"><i class="material-icons">keyboard_arrow_right</i></a>
+        </div>
+    </div>    
+    <% end %>
+</div>
+<div class="col s4">
+    <div class="card-panel s12 center-align grey lighten-5">
+        <h5>Archived Cards</h5>
+    </div>
+    <% @archivedcards.each do |card| %>
+    <div class="card-panel s12 grey lighten-5">
+        <h4><%= card.title %></h4>
+        <h5><%= card.description %></h5>
+        <h6><%= card.urgency=="1" ? 'Do Right Now' : card.urgency=="2" ? 'Do Sometime Later' : 'Do Whenever' %></h6>
+        <h6><%= card.details %></h6><br>
+        <div class="row center-align">
+            <a href="/moveleft?id_param=<%= card.id %>" class="btn-floating btn-small grey lighten-3"><i class="material-icons">keyboard_arrow_left</i></a>
+            <a href="/edit?id_param=<%= card.id %>" class="btn-floating btn-small grey"><i class="material-icons">mode_edit</i></a>
+            <a href="/delete?id_param=<%= card.id %>" class="btn-floating btn-small red"><i class="material-icons">delete</i></a>
+            <a href="/moveright?id_param=<%= card.id %>" class="btn-floating btn-small grey lighten-3 disabled"><i class="material-icons">keyboard_arrow_right</i></a>
+        </div>
+    </div>   
+    <% end %>
+</div>
+
+<% if @newcards.empty? && @currentcards.empty? && @archivedcards.empty? %>
+<div class="col s8 push-s2">
+    <div class="card-panel center-align">
+        <p>You don't have any cards. Click the + icon to add some.</p>
+    </div>
+</div>
+<% end %>
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a href="/new" class="btn-floating btn-large grey darken-2">
+      <i class="large material-icons">add</i>
+    </a>
+</div>
