@@ -9,7 +9,7 @@
         <h6><%= card.urgency=="1" ? 'Do Right Now' : card.urgency=="2" ? 'Do Sometime Later' : 'Do Whenever' %></h6>
         <h6><%= card.details %></h6><br>
         <div class="row center-align">
-            <a href="/moveleft?id_param=<%= card.id %>" class="btn-floating btn-small grey lighten-3 disabled"><i class="material-icons">keyboard_arrow_left</i></a>
+            <div class="btn-floating btn-small grey lighten-3 disabled"><i class="material-icons">keyboard_arrow_left</i></div>
             <a href="/edit?id_param=<%= card.id %>" class="btn-floating btn-small grey"><i class="material-icons">mode_edit</i></a>
             <a href="/delete?id_param=<%= card.id %>" class="btn-floating btn-small red"><i class="material-icons">delete</i></a>
             <a href="/moveright?id_param=<%= card.id %>" class="btn-floating btn-small grey lighten-3"><i class="material-icons">keyboard_arrow_right</i></a>
@@ -50,7 +50,7 @@
             <a href="/moveleft?id_param=<%= card.id %>" class="btn-floating btn-small grey lighten-3"><i class="material-icons">keyboard_arrow_left</i></a>
             <a href="/edit?id_param=<%= card.id %>" class="btn-floating btn-small grey"><i class="material-icons">mode_edit</i></a>
             <a href="/delete?id_param=<%= card.id %>" class="btn-floating btn-small red"><i class="material-icons">delete</i></a>
-            <a href="/moveright?id_param=<%= card.id %>" class="btn-floating btn-small grey lighten-3 disabled"><i class="material-icons">keyboard_arrow_right</i></a>
+            <div class="btn-floating btn-small grey lighten-3 disabled"><i class="material-icons">keyboard_arrow_right</i></div>
         </div>
     </div>   
     <% end %>
